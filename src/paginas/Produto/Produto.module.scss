@@ -1,0 +1,72 @@
+@import "../../styles/variaveis";
+
+div.produto {
+    max-width: 1020px;
+    width: 100%;
+    justify-content: space-between;
+    padding: 20px 20px 60px;
+    &__bgProduto {
+        max-width: 460px;
+        width: 100%;
+        height: 100%;
+        padding: 140px;
+        background-repeat: no-repeat;
+    }
+    &__infoContent {
+        background: $color2;
+        max-width: 460px;
+        width: 100%;
+        p {
+            background-color: $color2;
+            color: $color3;
+            font-size: 18px;
+            line-height: 25px;
+            padding: 30px 40px;
+            @media only screen and (max-width: 500px) {
+                font-size: 14px;
+                line-height: 20px;
+                height: auto;
+                padding: 20px 30px;
+            }
+        }
+        ul {
+            @media only screen and (max-width: 500px) {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            list-style-type: none;
+            li {
+                background: $color1;
+                text-transform: uppercase;
+                font-size: 18px;
+                line-height: 20px;
+                font-weight: bold;
+                float: left;
+                max-width: 229px;
+                width: 100%;
+                height: 49px;
+                text-align: center;
+                padding-top: 16px;
+                &:nth-child(1),
+                &:nth-child(2) {
+                    margin-bottom: 2px;
+                }
+                &:nth-child(even) {
+                    margin-left: 2px;
+                }
+                @media only screen and (max-width: 500px) {
+                    max-width: 149px;                
+                    font-size: 14px;
+                    line-height: 20px;
+                    padding-top: 14px;
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 980px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;    
+    }
+}

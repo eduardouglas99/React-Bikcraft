@@ -1,0 +1,69 @@
+@import "../../styles/variaveis";
+
+.produtos {
+    &__formContato {
+        background-color: $color2;
+        &__container {
+            flex-direction: column;
+            div.flex {
+                align-items: flex-start;
+                width: 100%;
+                justify-content: center;
+                gap: 60px;
+                @media only screen and (max-width: 768px) {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+            h3.goldTitle {
+                color: $color1;
+                &::after{
+                    background: $color1;
+                }
+            }
+            &__information {
+                max-width: 460px;
+                width: 100%;
+                color: $color3;
+                padding: 0 20px;
+                @media only screen and (max-width: 768px) {
+                    max-width: 100%;
+                    width: 100%;
+                }
+                h3 {
+                    font-size: 18px;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    color: #fec63e;
+                    font-weight: bold;
+                }
+                &__dados {
+                    padding: 0 0 40px 0;
+                    p {
+                        display: block;
+                        font-size: 18px;
+                        line-height: 30px;
+                    }
+                }
+                &__monteSuaBik {
+                    p {
+                        font-size: 14px;
+                        line-height: 20px;
+                        margin: 8px 0;
+                    }
+                    ul {
+                        list-style-type: none;
+                        li {
+                            font-size: 14px;
+                            padding: 10px 15px;
+                            color: $color3;
+                            &:nth-child(odd) {
+                                background: #1d1d1d;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

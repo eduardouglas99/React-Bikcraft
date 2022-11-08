@@ -1,0 +1,80 @@
+@import "../../styles/variaveis";
+
+.header {
+    background-color: $color1;
+    position: fixed;
+    max-width: 100%;
+    width: 100%;
+    z-index: 9999999999999999999;
+    &__container {
+        justify-content: space-between;
+        padding: 20px;
+    }
+    &__menu {
+        display: flex;
+        align-items: center;
+        a{
+            padding: 0 20px;
+            text-decoration: none;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: $color2;
+            font-weight: 700;
+            &:last-child {
+                padding: 0 0 0 20px;
+            }
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        a:last-child.linksMobile {
+            padding: 0;
+        }
+        @media only screen and (max-width: 768px) {
+            display: none;
+        }
+    }
+    &__btnMobile {
+        max-width: 40px;
+        width: 100%;
+        height: 40px;
+        cursor: pointer;
+        display: none;
+        @media only screen and (max-width: 768px) {
+            display: block;
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        &__menuMobile {
+            display: block;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            transform: translate(50%, -50%);
+            top: 50%;
+            right: 50%;
+            background: $color1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 100px;
+            z-index: 999;
+            a {
+                padding: 0;
+                &:last-child {
+                    padding: 0 0 0 20px;
+                }
+            }
+        }
+        &__btnActive {
+            transform: rotate(-45deg);
+        }
+        &__logo,
+        &__btnMobile {
+            z-index: 9999;
+        }
+    }
+
+}

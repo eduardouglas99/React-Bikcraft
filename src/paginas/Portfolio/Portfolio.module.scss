@@ -1,0 +1,24 @@
+.quoteClientes{
+    h4 {
+        line-height: 25px;
+        font-style: italic;
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: normal;
+    }
+    cite {
+        font-weight: bold;
+        text-align: right;
+        display: block;
+    }
+    h4, cite {
+        font-size: 18px;
+        font-style: normal;
+    }
+}
+
+blockquote.quoteClientes {
+    padding: 60px 20px;
+    max-width: 460px;
+    width: 100%;
+}

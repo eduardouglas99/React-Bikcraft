@@ -1,0 +1,24 @@
+@import '../../styles/variaveis';
+
+.carrouselPortifolio{
+    background-color: $color2;
+    padding: 40px 0;
+    &__container {
+        max-width: 960px;
+        width: 100%;
+        margin: 0 auto;
+        h3.goldTitle {
+            color: $color1;
+            &::after {
+                background-color: $color1;
+            }
+        }
+        img{
+            display: block;
+            width: 100%;
+        }
+        &__imagemFixa {
+            margin: 20px 0 0 0;
+        }
+    }
+}

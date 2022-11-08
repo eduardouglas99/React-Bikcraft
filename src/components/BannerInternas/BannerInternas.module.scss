@@ -1,0 +1,30 @@
+nav{
+    padding: 106px 0 0 0;
+    .bannerInternas {
+        height: 160px;
+        text-align: center;
+        color: #fff;
+        max-width: 100%;
+        width: 100%;
+        &.__bgSobre {
+            background: url('../../assets/images/bg/bg-sobre.jpg') no-repeat center / cover;
+        }
+        &.__bgContato {
+            background: url('../../assets/images/bg/bg-contato.jpg') no-repeat center / cover;
+        }
+        &.__bgPortfolio {
+            background: url('../../assets/images/bg/bg-portfolio.jpg') no-repeat center / cover;
+        }
+        &.__bgProdutos {
+            background: url('../../assets/images/bg/bg-produtos.jpg') no-repeat center / cover;
+        }
+        &__container {
+            flex-direction: column;
+            h2 {
+                font-size: 36px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

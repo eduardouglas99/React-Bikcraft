@@ -1,0 +1,57 @@
+@import "../../styles/variaveis";
+
+.banner{    
+    background: url('../../assets/images/bg/bg.jpg');
+    background-size: cover;
+    text-align: center;
+    padding: 126px 0 20px;
+    &__titulo {
+        font-size: 48px;
+        font-weight: 700;
+        color: $color3;
+    }
+}
+
+.produtos {
+    &__card {
+        justify-content: center;
+        @media only screen and (max-width: 1080px){
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            max-width: 300px;
+            width: 100%;
+            background: $color2;
+            text-decoration: none;
+            color: $color2;
+            margin: 0 20px;
+            &:first-child,
+            &:last-child {
+                margin: 0;
+            }
+            @media only screen and (max-width: 1080px){
+                margin: 0;
+            }
+        }
+        &__content {
+            background-color: $color1;
+            h4{
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 25px;
+                text-transform: uppercase;
+                letter-spacing: .1em;
+                margin-top: 20px;
+            }
+            p{
+                padding: 10px 20px 20px 20px;
+            }
+        }
+    }
+}

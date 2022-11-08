@@ -1,0 +1,76 @@
+@import "../../styles/variaveis";
+
+form.formContato {
+    flex-direction: column;
+    max-width: 460px;
+    width: 100%;
+    padding: 0 12px;
+    gap: 20px;
+    align-items: flex-start;
+     @media only screen and (max-width: 768px) {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.formContato {
+    &__Group {
+        max-width: 100%;
+        width: 100%;
+        label {
+            font-size: 18px;
+            line-height: 25px;
+            margin-bottom: 4px;
+        }
+        input {
+            font-size: 14px;
+        }
+        textarea {
+            height: 100px;
+        }
+        label, input, textarea {
+            font-family: Georgia, "Times New Roman", serif;
+            display: block;
+            width: 100%;
+            color: #fff;
+        } 
+        input, textarea {
+            padding: 7px 10px;
+            font-size: 14px;
+            border: 4px solid $color1;
+            outline: none;
+            background: none;
+        }
+        span.error{
+            color: red;
+            margin: 6px 0 0;
+            display: block;
+            font-size: 14px;
+        }
+    }
+    input[type='submit'] {
+        border: 3px solid $color1;
+        padding: 10px 30px;
+        color: $color1;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: .1em;
+        transition: all .5s ease;
+        max-width: 150px;
+        width: 100%;
+        background: none;
+        cursor: pointer;
+        margin: 8px 0 0 0;
+        @media only screen and (max-width: 768px) {
+            display: block;
+            margin: 8px auto 0;
+        }
+    }
+    input[type='submit']:hover,
+    input:hover, 
+    textarea:hover {
+        border-color: $color3;
+    }
+}

@@ -1,0 +1,74 @@
+@import "../../styles/variaveis";
+
+.footer{
+    background-color: $color1;
+    &__blockOne{
+        background-color: $color2;
+        &__container{
+            justify-content: space-between;
+            align-items: flex-start;
+            @media only screen and (max-width: 980px) {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            &__historia {
+                max-width: 460px;
+                width: 100%;
+                p{
+                    color: $color3;
+                    font-size: 16px;
+                }
+            }
+            &__list{
+                a{
+                    text-decoration: none;
+                    li{
+                        color: $color3;
+                    }
+                }
+            }
+            &__socialMedia{
+                &__link{
+                    gap: 10px;
+                    a{
+                        height: 100%;
+                        img{
+                            padding: 10px;
+                            border: 3px solid $color1;
+                            &:hover{
+                                border-color: $color3;
+                            }
+                        }
+                    }
+                }
+            }
+            h3{
+                color: $color1;
+                font-size: 18px;
+                line-height: 25px;
+                text-transform: uppercase;
+                letter-spacing: .1em;
+                font-weight: bold;
+                &::after{
+                    content: "";
+                    display: block;
+                    width: 60px;
+                    height: 3px;
+                    background-color: $color1;
+                    margin: 6px 0 12px;
+                }
+            }
+        }
+    }
+    &__blockTwo{
+        padding: 20px;
+    }
+    &__blockOne__container,
+    &__blockTwo{
+        padding: 20px;
+    }
+}
+
+.container{
+    align-items: flex-start;
+}

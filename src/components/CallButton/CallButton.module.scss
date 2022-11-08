@@ -1,0 +1,39 @@
+@import "../../styles/variaveis";
+
+.callAction {
+    text-align: center;
+    padding: 40px 0 0 0;
+    &__text {
+        &.whiteText{
+            color: $color3;
+        }
+    }
+    &__button {
+        border: 3px solid $color1;
+        padding: 10px;
+        color: $color1;
+        font-size: 14px;
+        line-height: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: .1em;
+        transition: all .5s ease;
+        text-decoration: none;
+        display: block;
+        max-width: 156px;
+        width: 100%;
+        margin: 14px auto 0;
+        &:hover {
+            color: $color3;
+            border-color: $color3;
+        }
+        &.__hoverBlack:hover {
+            color: $color2;
+            border-color: $color2;
+    
+        }
+    }
+    &.__noPadding {
+        padding: 0;
+    }
+}
