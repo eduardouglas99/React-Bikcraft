@@ -14,6 +14,7 @@ import Produto from "paginas/Produto";
 import ScrollToTop from "utils/ScrollToTop";
 import Portfolio from "paginas/Portfolio";
 import Contato from "paginas/Contato";
+import NotFound from "paginas/NotFound";
 
 export default function AppRouter() {
   return (
@@ -28,6 +29,7 @@ export default function AppRouter() {
         </Route>
         <Route path="/portfolio" element={<Portfolio />}/>
         <Route path="/contato" element={<Contato />}/>
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Quotes
         background="__bg"

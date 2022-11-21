@@ -9,6 +9,9 @@
             width: 100%;
             iframe {
                 width: 100%;
+                position: relative;
+                z-index: 9999999999999999999999999999999;
+                top: 0px;
             }
         }
     }
@@ -19,3 +22,15 @@ div.contato__container {
     justify-content: center;
     gap: 60px;
 }
+
+@keyframes spinner {
+    0% {
+        background-color: #c5c5c5;
+    }
+    50% {
+        background-color: #fff;
+    }
+    100% {
+        background-color: #c5c5c5;
+    }
+  }

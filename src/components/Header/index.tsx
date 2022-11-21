@@ -1,7 +1,9 @@
 import styles from "./Header.module.scss";
 import headerImg from "../../assets/images/header/bikcraft.png";
 import { Link, NavLink } from "react-router-dom";
-import { RiBikeFill } from "react-icons/ri";
+import { RiMenu2Fill } from "react-icons/ri";
+import { AiOutlineClose } from "react-icons/ai";
+
 import { useState } from "react";
 import service from "../../services/services.json";
 
@@ -22,7 +24,7 @@ export default function Header() {
             setMenuMobileAberto(false);
           }}
         >
-          <img src={headerImg} alt="" />
+          <img src={headerImg} alt="Bikcraft" />
         </Link>
         <ul
           className={`${
@@ -45,16 +47,21 @@ export default function Header() {
             </NavLink>
           ))}
         </ul>
-        <RiBikeFill
-          className={`${
-            menuMobileAberto
-              ? `${styles.header__btnMobile} ${styles.header__btnActive}`
-              : `${styles.header__btnMobile}`
-          }`}
-          onClick={() => {
-            setMenuMobileAberto(!menuMobileAberto);
-          }}
-        />
+        {!menuMobileAberto ? (
+          <RiMenu2Fill
+            className={`${`${styles.header__btnMobile}`}`}
+            onClick={() => {
+              setMenuMobileAberto(!menuMobileAberto);
+            }}
+          />
+        ) : (
+          <AiOutlineClose
+            className={`${`${styles.header__btnMobile}`}`}
+            onClick={() => {
+              setMenuMobileAberto(!menuMobileAberto);
+            }}
+          />
+        )}
       </div>
     </div>
   );
