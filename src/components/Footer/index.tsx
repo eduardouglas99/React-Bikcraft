@@ -1,7 +1,7 @@
 import styles from "./Footer.module.scss";
-import facebookImg from "assets/images/redes-sociais/facebook.png";
-import instagramImg from "assets/images/redes-sociais/instagram.png";
-import twitterImg from "assets/images/redes-sociais/twitter.png";
+// import facebookImg from "assets/images/redes-sociais/facebook.png";
+// import instagramImg from "assets/images/redes-sociais/instagram.png";
+// import twitterImg from "assets/images/redes-sociais/twitter.png";
 import IDadosEmpresa from "interfaces/IDadosEmpresa";
 
 // const resumo = servicesInfo.dadosEmpresa.resumo;
@@ -40,17 +40,13 @@ export default function Footer(props: IProps) {
             </ul>
           </div>
           <div className={`${styles.footer__blockOne__container__socialMedia}`}>
-            <h3>{dadosEmpresa?.["redes-sociais"].title}</h3>
+            <h3>{dadosEmpresa?.redesSociais.title}</h3>
             <div className={`flex ${styles.footer__blockOne__container__socialMedia__link}`}>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src={facebookImg} alt="" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src={instagramImg} alt="" />
-              </a>
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <img src={twitterImg} alt="" />
-              </a>
+              {dadosEmpresa?.redesSociais.plataforma.map((item, index) => (
+                <a href={item.direcionamento} target="_blank" rel="noopener noreferrer" key={index}>
+                  <img src={item.logo} title={item.nome} alt={item.nome} />
+                </a>
+              ))}
             </div>
           </div>
         </div>

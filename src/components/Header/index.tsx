@@ -1,5 +1,4 @@
 import styles from "./Header.module.scss";
-import headerImg from "../../assets/images/header/bikcraft.png";
 import { Link, NavLink } from "react-router-dom";
 import { RiMenu2Fill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
@@ -40,7 +39,7 @@ export default function Header(props: IProps) {
             setMenuMobileAberto(false);
           }}
         >
-          <img src={headerImg} alt="Bikcraft" title="Bikcraft"/>
+          <img src={dadosEmpresa?.logoEmpresa} alt="Bikcraft" title="Bikcraft"/>
         </Link>
         <ul
           className={`${
