@@ -2,11 +2,36 @@ import CallButton from "components/CallButton";
 import CarroulselPortfolio from "components/CarroulselPortfolio";
 import Qualidade from "components/Qualidade";
 import Quotes from "components/Quotes";
+import http from "../../http/index";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import service from "../../services/services.json";
 import styles from "./Home.module.scss";
+import IDadosEmpresa from "interfaces/IDadosEmpresa";
+import IProdutos from "interfaces/IProdutos";
 
 export default function Home() {
+
+  const [sobreEmpresa, setsobreEmpresa] = useState<IDadosEmpresa>();
+  const [produtos, setProdutos] = useState<IProdutos[]>([])
+
+  useEffect(() => {
+    http.get("/dadosEmpresa")
+    .then((response) => {
+      setsobreEmpresa(response.data);
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+
+    http.get<IProdutos[]>("/produtos")
+    .then((response) => {
+      setProdutos(response.data);
+    })
+    .catch((error) => {
+      console.log(error)
+    });
+  }, [])
+
   return (
     <>
       <div className={`${styles.banner}`}>
@@ -15,12 +40,12 @@ export default function Home() {
             BICICLETAS FEITAS A MÃO
           </h1>
           <Quotes
-            frase={service.dadosEmpresa.quotesBanner.frase}
-            autor={service.dadosEmpresa.quotesBanner.autor}
+            frase={sobreEmpresa?.quotesBanner.frase!}
+            autor={sobreEmpresa?.quotesBanner.autor as string}
           />
           <CallButton
             // texto="clique aqui e veja os detalhes dos produtos"
-            direcionamento="/orcamento"
+            direcionamento="/produtos"
             nome="Orçamento"
             espacamento="noPadding"
           />
@@ -31,7 +56,7 @@ export default function Home() {
         <div className={`container-section`}>
           <h3 className={`section-title`}>Produtos</h3>
           <div className={`flex ${styles.produtos__card}`}>
-            {service.produtos.map((item, index) => (
+            {produtos.map((item, index) => (
               <Link to={`produtos/produto/${item.direcionamento}`} key={index}>
                 <div className={`container`}>
                   <img src={item.imagem} alt={item.nome} title={item.nome} />
@@ -40,7 +65,7 @@ export default function Home() {
                   <h4 className={`line-block`}>{item.nome}</h4>
                   <p className={`section-description`}>{item.descricao}</p>
                 </div>
-              </Link>
+            </Link>
             ))}
           </div>
           <CallButton 

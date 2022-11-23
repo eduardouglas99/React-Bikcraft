@@ -3,11 +3,13 @@ import imagemFixa from "assets/images/portfolio/esporte.jpg";
 import styles from "./carrouselPortifolio.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
-
 import "swiper/scss";
 import "swiper/scss/pagination";
 import CallButton from "components/CallButton";
 import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import http from "../../http/index";
+import IPortfolio from "interfaces/IPortfolio";
 
 interface IProps {
   title?: string;
@@ -17,6 +19,18 @@ interface IProps {
 export default function CarrouselPortifolio(props: IProps) {
   const { title, colorTitle } = props;
   const { pathname } = useLocation();
+  const [ dadosPortfolio, setDadosPortfolio ] = useState<IPortfolio>();
+
+  useEffect(() => {
+    http.get("/portfolio")
+    .then((response) => {
+      setDadosPortfolio(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
   return (
     <section className={`${styles.carrouselPortifolio}`}>
       <div className={`${styles.carrouselPortifolio__container}`}>
@@ -37,7 +51,7 @@ export default function CarrouselPortifolio(props: IProps) {
             slidesPerView={2}
             spaceBetween={20}
           >
-            {imagensCarroulsel.portfolio.carroulsel.map((img, index) => (
+            {dadosPortfolio?.carroulsel.map((img, index) => (
               <SwiperSlide key={index}>
                 <img src={img.imagem} />
               </SwiperSlide>
@@ -45,7 +59,7 @@ export default function CarrouselPortifolio(props: IProps) {
           </Swiper>
         </div>
         <div className={`${styles.carrouselPortifolio__container__imagemFixa}`}>
-          <img src={imagemFixa} alt="" />
+          <img src={imagemFixa} alt="Bicicleta Bikcraft" title="Bicicleta Bikcraft"/>
         </div>
       </div>
       {pathname !== "/portfolio" && (

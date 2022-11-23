@@ -57,5 +57,9 @@
             }
         }
     }
-
+    &__containerSobre {
+        &:after {
+            top: 52%;
+        }
+    }
 }

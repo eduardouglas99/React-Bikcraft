@@ -3,12 +3,28 @@ import headerImg from "../../assets/images/header/bikcraft.png";
 import { Link, NavLink } from "react-router-dom";
 import { RiMenu2Fill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
+import http from "../../http";
+import { useEffect, useState } from "react";
+import IDadosEmpresa from "interfaces/IDadosEmpresa";
 
-import { useState } from "react";
-import service from "../../services/services.json";
+interface IProps {
+  dadosEmpresa: IDadosEmpresa;
+}
 
-export default function Header() {
+export default function Header(props: IProps) {
+  const { dadosEmpresa } = props;
   const [menuMobileAberto, setMenuMobileAberto] = useState(false);
+  // const [dadosEmpresa, setDadosEmpresa] = useState<IDadosEmpresa>();
+
+  // useEffect(() => {
+  //   http.get("/dadosEmpresa")
+  //   .then((response) => {
+  //     setDadosEmpresa(response.data)
+  //   })
+  //   .catch((error) => {
+  //     console.log(error)
+  //   })
+  // }, []);
 
   let activeStyle = {
     color: "#fff",
@@ -24,7 +40,7 @@ export default function Header() {
             setMenuMobileAberto(false);
           }}
         >
-          <img src={headerImg} alt="Bikcraft" />
+          <img src={headerImg} alt="Bikcraft" title="Bikcraft"/>
         </Link>
         <ul
           className={`${
@@ -33,7 +49,7 @@ export default function Header() {
               : `${styles.header__menu}`
           }`}
         >
-          {service.dadosEmpresa.navegacaoLinks.map((link, index) => (
+          {dadosEmpresa?.navegacaoLinks.map((link, index) => (
             <NavLink
               to={link.direcionamento}
               key={index}

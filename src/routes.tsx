@@ -7,20 +7,37 @@ import {
 import Header from "./components/Header";
 import Quotes from "components/Quotes";
 import Home from "paginas/Home";
-import services from "services/services.json";
+// import services from "services/services.json";
 import Sobre from "paginas/Sobre";
-import Produtos from "paginas/Produtos/Produtos";
+import Produtos from "paginas/Produtos";
 import Produto from "paginas/Produto";
 import ScrollToTop from "utils/ScrollToTop";
 import Portfolio from "paginas/Portfolio";
 import Contato from "paginas/Contato";
 import NotFound from "paginas/NotFound";
+import { useEffect, useState } from "react";
+import http from "./http/index";
+import ISobreEmpresa from "interfaces/IDadosEmpresa";
 
 export default function AppRouter() {
+
+  const [sobreEmpresa, setsobreEmpresa] = useState<ISobreEmpresa>();
+
+  useEffect(() => {
+    http.get("/dadosEmpresa")
+    .then((response) => {
+      setsobreEmpresa(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
+
   return (
     <Router>
       <ScrollToTop />
-      <Header />
+      <Header dadosEmpresa={sobreEmpresa!}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<Sobre />} />
@@ -33,10 +50,10 @@ export default function AppRouter() {
       </Routes>
       <Quotes
         background="__bg"
-        frase={services.dadosEmpresa.quotesFooter.frase}
-        autor={services.dadosEmpresa.quotesFooter.autor}
+        frase={sobreEmpresa?.quotesFooter.frase!}
+        autor={sobreEmpresa?.quotesFooter.autor as string}
       />
-      <Footer />
+      <Footer dadosEmpresa={sobreEmpresa!} />
     </Router>
   );
 }

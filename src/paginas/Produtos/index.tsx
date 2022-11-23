@@ -3,11 +3,27 @@ import CardProdutos from "components/CardProdutos";
 import FormContato from "components/FormContato";
 import styles from "./Produtos.module.scss";
 import services from '../../services/services.json';
-import { Outlet, useLocation, useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import http from "../../http/index";
+import IProdutos from "interfaces/IProdutos";
 
 export default function Produtos() {
     const { direcionamento } = useParams();
-    const produto = services.produtos.find((item => item.direcionamento === direcionamento));
+    const [produtos, setProdutos] = useState<IProdutos[]>([]);
+
+    useEffect(() => {
+        http.get<IProdutos[]>("/produtos")
+        .then((response) => {
+            setProdutos(response.data);
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }, [])
+
+    const produto = produtos.find(item => item.direcionamento === direcionamento);
+
     return(
         <>
             {!produto && (

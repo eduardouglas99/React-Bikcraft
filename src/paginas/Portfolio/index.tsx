@@ -7,8 +7,23 @@ import { Autoplay } from "swiper";
 
 import "swiper/scss";
 import "swiper/scss/pagination";
+import { useEffect, useState } from "react";
+import http from "../../http/index";
+import IPortfolio from "interfaces/IPortfolio";
 
 const Portfolio = () => {
+  const [ dadosPortfolio, setDadosPortfolio ] = useState<IPortfolio>();
+
+  useEffect(() => {
+    http.get("/portfolio")
+    .then((response) => {
+      setDadosPortfolio(response.data)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
   return (
     <section>
       <BannerInternas
@@ -18,7 +33,7 @@ const Portfolio = () => {
       />
       <blockquote className={`flex container ${styles.quoteClientes}`}>
         <Swiper modules={[Autoplay]} loop={true} autoplay slidesPerView={1}>
-          {service.portfolio.depoimentos.map((item, index) => (
+          {dadosPortfolio?.depoimentos.map((item, index) => (
             <SwiperSlide key={index}>
               <h4>{item.texto}</h4>
               <cite>{item.autor}</cite>

@@ -1,17 +1,29 @@
+import IProdutos from "interfaces/IProdutos";
+import NotFound from "paginas/NotFound";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import services from "../../services/services.json";
+// import services from "../../services/services.json";
 import styles from "./Produto.module.scss";
+import http from "../../http/index";
 
 const Produto = () => {
   const { direcionamento } = useParams();
-  const produto = services.produtos.find(
-    (item) => item.direcionamento === direcionamento
-  );
+  const [ produtos, setProdutos ] = useState<IProdutos[]>([]);
+
+  useEffect(() => {
+    http.get<IProdutos[]>("/produtos")
+    .then((response) => {
+      setProdutos(response.data);
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }, [])
+
+  const produto = produtos.find(item => item.direcionamento === direcionamento);
   if (!produto) {
     return (
-      <div className={`flex container ${styles.teste}`}>
-        <h1>Não existe</h1>
-      </div>
+      <NotFound />
     );
   }
 
