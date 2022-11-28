@@ -39,10 +39,17 @@
                 }
                 &__dados {
                     padding: 0 0 40px 0;
-                    p {
-                        display: block;
-                        font-size: 18px;
-                        line-height: 30px;
+                    a {
+                        color: $color3;
+                        text-decoration: none;
+                        p {
+                            display: block;
+                            font-size: 18px;
+                            line-height: 30px;
+                        }
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
                 &__monteSuaBik {

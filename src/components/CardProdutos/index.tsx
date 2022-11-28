@@ -1,16 +1,22 @@
 import styles from "./CardProdutos.module.scss";
 import services from "../../services/services.json";
 import { Link, useParams } from "react-router-dom";
+import IProdutos from "interfaces/IProdutos";
 
-export default function CardProdutos() {
+interface IProps{
+  produtos: IProdutos[];
+}
+
+export default function CardProdutos(props: IProps) {
+  const { produtos } = props;
   const { direcionamento } = useParams();
-  const produto = services.produtos.find(
+  const produto = produtos.find(
     (item) => item.direcionamento === direcionamento
   );
   if (!produto) {
     return (
       <div className={`container`}>
-        {services.produtos.map((item, index) => (
+        {produtos.map((item, index) => (
           <Link
             to={`produto/${item.direcionamento}`}
             key={index}

@@ -1,12 +1,5 @@
 import styles from "./Footer.module.scss";
-// import facebookImg from "assets/images/redes-sociais/facebook.png";
-// import instagramImg from "assets/images/redes-sociais/instagram.png";
-// import twitterImg from "assets/images/redes-sociais/twitter.png";
 import IDadosEmpresa from "interfaces/IDadosEmpresa";
-
-// const resumo = servicesInfo.dadosEmpresa.resumo;
-// const contato = servicesInfo.dadosEmpresa.contato;
-// const redeSocial = servicesInfo.dadosEmpresa["redes-sociais"];
 
 interface IProps {
   dadosEmpresa: IDadosEmpresa;
