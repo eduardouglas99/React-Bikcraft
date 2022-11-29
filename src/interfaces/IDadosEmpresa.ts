@@ -15,7 +15,6 @@ export default interface IDadosEmpresa {
     },
     quotesBanner: {frase: string, autor: string},
     quotesFooter: {frase: string, autor: string},
-    // navegacaoLinks: [titulo: string, direcionamento: string],
     navegacaoLinks: [{titulo: string, direcionamento: string}],
-    especificacoes: [tipo: string]
+    especificacoes: [{tipo: string}]
 }

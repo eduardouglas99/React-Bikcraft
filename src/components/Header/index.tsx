@@ -2,8 +2,7 @@ import styles from "./Header.module.scss";
 import { Link, NavLink } from "react-router-dom";
 import { RiMenu2Fill } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
-import http from "../../http";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import IDadosEmpresa from "interfaces/IDadosEmpresa";
 
 interface IProps {
@@ -13,17 +12,6 @@ interface IProps {
 export default function Header(props: IProps) {
   const { dadosEmpresa } = props;
   const [menuMobileAberto, setMenuMobileAberto] = useState(false);
-  // const [dadosEmpresa, setDadosEmpresa] = useState<IDadosEmpresa>();
-
-  // useEffect(() => {
-  //   http.get("/dadosEmpresa")
-  //   .then((response) => {
-  //     setDadosEmpresa(response.data)
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // }, []);
 
   let activeStyle = {
     color: "#fff",

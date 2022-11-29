@@ -2,7 +2,6 @@ import IProdutos from "interfaces/IProdutos";
 import NotFound from "paginas/NotFound";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import services from "../../services/services.json";
 import styles from "./Produto.module.scss";
 import http from "../../http/index";
 

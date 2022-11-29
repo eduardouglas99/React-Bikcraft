@@ -3,7 +3,6 @@ import Qualidade from "components/Qualidade";
 import http from "../../http/index";
 import ISobre from "interfaces/ISobre";
 import { useEffect, useState } from "react";
-import service from "../../services/services.json";
 import styles from "./Sobre.module.scss";
 
 export default function Sobre() {

@@ -1,5 +1,4 @@
 import styles from "./CardProdutos.module.scss";
-import services from "../../services/services.json";
 import { Link, useParams } from "react-router-dom";
 import IProdutos from "interfaces/IProdutos";
 

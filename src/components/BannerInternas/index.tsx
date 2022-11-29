@@ -1,5 +1,4 @@
 import styles from "./BannerInternas.module.scss";
-
 interface IProps {
   bgInterna: string;
   titulo: string,

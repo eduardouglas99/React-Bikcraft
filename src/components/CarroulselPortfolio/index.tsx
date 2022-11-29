@@ -1,4 +1,3 @@
-import imagensCarroulsel from "../../services/services.json";
 import imagemFixa from "assets/images/portfolio/esporte.jpg";
 import styles from "./carrouselPortifolio.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";

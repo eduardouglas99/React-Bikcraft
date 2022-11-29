@@ -1,12 +1,10 @@
 import styles from "./Qualidade.module.scss";
 import logoEmpresa from "../../assets/images/bikcraft-qualidade.png";
-import valores from "../../services/services.json";
 import CallButton from "components/CallButton";
 import { useEffect, useState } from "react";
 import IQualidade from "interfaces/IQualidade";
 import http from "../../http/index";
 import { useLocation} from "react-router-dom";
-
 interface IProps {
   useCallAction: boolean;
 }

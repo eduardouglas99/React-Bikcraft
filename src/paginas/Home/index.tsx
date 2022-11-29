@@ -44,7 +44,6 @@ export default function Home() {
             autor={sobreEmpresa?.quotesBanner.autor as string}
           />
           <CallButton
-            // texto="clique aqui e veja os detalhes dos produtos"
             direcionamento="/produtos"
             nome="Orçamento"
             espacamento="noPadding"

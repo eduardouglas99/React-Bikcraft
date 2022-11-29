@@ -1,5 +1,4 @@
 import styles from './Quotes.module.scss';
-
 interface IProps{
     frase: string,
     autor: string,

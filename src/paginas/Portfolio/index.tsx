@@ -1,10 +1,8 @@
 import BannerInternas from "components/BannerInternas";
 import CarrouselPortifolio from "components/CarroulselPortfolio";
-import service from "../../services/services.json";
 import styles from "./Portfolio.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
-
 import "swiper/scss";
 import "swiper/scss/pagination";
 import { useEffect, useState } from "react";
